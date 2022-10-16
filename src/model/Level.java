@@ -10,14 +10,17 @@ public class Level{
 	private int scoreNeccesary;
 	private int totalTreasures;
 
-	public Enemy[] enemies;
-	public Treasure[] treasures;
+	private Enemy[] enemies;
+	private Treasure[] treasures;
 
 
 	public Level (int idLevel, int scoreNeccesary, int totalTreasures){
 		this.idLevel = idLevel;
 		this.scoreNeccesary = scoreNeccesary;
 		this.totalTreasures = totalTreasures;
+		enemies = new Enemy[5];
+		treasures = new Treasure[totalTreasures];
+
 
 	}
 
@@ -27,6 +30,14 @@ public class Level{
 	
 	public void setidLevel(int idLevel){
 		this.idLevel = idLevel;
+	}
+
+	public Enemy[] getEnemies(){
+		return enemies;
+	}
+
+	public Treasure[] getTreasures(){
+		return treasures;
 	}
 	
 	public int scoreNeccesary(){

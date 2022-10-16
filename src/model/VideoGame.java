@@ -147,7 +147,7 @@ public class VideoGame{
         boolean isFound = false;
         int posLevel = searchLevelByIdent(idLevel);
         for(int i = 0; i < ALL_ENEMIES && !isFound; i++){
-            if(levels[posLevel].enemies[i].getidEnemy().equalsIgnoreCase(idEnemy)){
+            if(levels[posLevel].getEnemies()[i].getidEnemy().equalsIgnoreCase(idEnemy)){
                 pos = i;
                 isFound = true;
             } 
@@ -173,7 +173,7 @@ public class VideoGame{
         else{
 
             for(int i = 0; i < ALL_ENEMIES && !isAddedEnemyToLevel; i++){
-                if(levels[posLevel].enemies[i] == null){
+                if(levels[posLevel].getEnemies()[i] == null){
                     msj = levels[posLevel].addEnemyLevel(newEnemy);
 
                     isAddedEnemyToLevel = true;
@@ -203,6 +203,8 @@ public class VideoGame{
         for(int i = 0; i < SIZE_OF_PLAYERS; i++){
             if(players[i] != null && players[i].getidNick().equalsIgnoreCase(idNick)){
                 players[i].setScore(playerScore);
+
+
             }
         }
         return msj;
@@ -215,6 +217,14 @@ public class VideoGame{
             msj = modifyScore(scorePlayer, idNick);
         }
         return msj;
+    }
+
+    public String IncreasePlayerLevel(String idNick, Level level, int scorePlayer){
+        String msj = ("Something went wrong. Could not increase level of the player. ");
+
+
+        return msj;
+
     }
 
 

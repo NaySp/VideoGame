@@ -36,11 +36,13 @@ public class Level{
 		return enemies;
 	}
 
+	
+
 	public Treasure[] getTreasures(){
 		return treasures;
 	}
 	
-	public int scoreNeccesary(){
+	public int getScoreNeccesary(){
 		return scoreNeccesary;
 	}
 

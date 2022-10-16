@@ -219,10 +219,24 @@ public class VideoGame{
         return msj;
     }
 
-    public String IncreasePlayerLevel(String idNick, Level level, int scorePlayer){
+    public String IncreaseLevelPlayer(String idNick){
         String msj = ("Something went wrong. Could not increase level of the player. ");
+        int posPlayer = searchPersonById(idNick);
 
-
+        for(int i = 0; i < SIZE_OF_PLAYERS; i++){
+            if(players[i] != null && players[i].getidNick().equalsIgnoreCase(idNick)){
+                if(posPlayer == -1){
+                    msj = "The idNick does not match.";
+                }else if(players[i].getScore() < players[i].getLevel().getScoreNeccesary()){
+                    msj = "The player does not have the score required for increase level. ";    
+                }else if(players[i].getLevel().getidLevel() == 10){
+                    msj = "Tha player already get max level. ";
+                }else{
+                    players[i].setLevel(levels[players[i].getLevel().getidLevel()]);
+                    msj += "\n Level increase for: " +players[i].getLevel().getidLevel() +"\n\n";
+                }
+            }
+        }
         return msj;
 
     }

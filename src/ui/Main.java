@@ -154,6 +154,10 @@ public class Main{
 
 			case 6:
 
+				System.out.println("Type the idNick of the player that u want to increase of level: ");
+				id = reader.next();
+				msj = videoGame.IncreaseLevelPlayer(id);
+				System.out.println(msj);
 
 
 				break;

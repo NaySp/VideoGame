@@ -58,9 +58,6 @@ public class Enemy {
 		this.idEnemy = idEnemy;
 	}
 
-	public Level getLevel(){
-		return level;
-	}
 	public int getType(){
 		switch(typeEnemy){
 			case OGRO:

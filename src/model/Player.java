@@ -7,10 +7,13 @@ public class Player{
 	private String name;
 	private String idNick;
 	private int score;
+	private Level level;
 
 	public Player(String name, String idNick, Level level) {
 		this.name = name;
 		this.idNick = idNick;	
+		score = 10;
+		this.level = level;
 	}
 
     public String getName() {
@@ -31,6 +34,14 @@ public class Player{
 
 	public void setScore(int score){
 		this.score = score;
+	}
+
+	public Level getLevel(){
+		return level;
+	}
+
+	public void setLevel(Level level){
+		this.level = level;
 	}
 
 

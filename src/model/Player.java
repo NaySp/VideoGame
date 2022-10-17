@@ -7,13 +7,14 @@ public class Player{
 	private String name;
 	private String idNick;
 	private int score;
-	private Level level;
+	private int level;
 
-	public Player(String name, String idNick, Level level) {
+	public Player(String name, String idNick, int level) {
 		this.name = name;
 		this.idNick = idNick;	
 		score = 10;
 		this.level = level;
+
 	}
 
     public String getName() {
@@ -36,11 +37,11 @@ public class Player{
 		this.score = score;
 	}
 
-	public Level getLevel(){
+	public int getLevel(){
 		return level;
 	}
 
-	public void setLevel(Level level){
+	public void setLevel(int level){
 		this.level = level;
 	}
 

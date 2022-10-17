@@ -4,6 +4,7 @@ import java.util.Random;
 public class Enemy {
 
 
+
 	private String idEnemy;
 
 	private TypeEnemy typeEnemy;
@@ -46,6 +47,7 @@ public class Enemy {
 
 				this.typeEnemy = TypeEnemy.MAGICAL;	
 				break;
+			
 
 		}
 	}
@@ -54,8 +56,20 @@ public class Enemy {
 		return idEnemy;
 	}
 
-	public void setName(String idEnemy) {
+	public Level getLevel(){
+		return level;
+	}
+
+	public void setidEnemy(String idEnemy) {
 		this.idEnemy = idEnemy;
+	}
+
+	public int getGiveScore(){
+		return giveScore;
+	}
+
+	public void setGiveScore(int giveScore){
+		this.giveScore = giveScore;
 	}
 
 	public int getType(){
@@ -76,5 +90,16 @@ public class Enemy {
 				return 0;	
 		}
 	}
+
+	public String toString(){
+		return
+		"Information about enemy: \n" +
+		"Identification of enemy:" + this.idEnemy + "\n"+
+		"Type enemy: " + this.typeEnemy + "\n "+
+		"Score that gives:" + this.giveScore + "\n "+
+		"Score that takes:" + this.takeScore + "\n "; 
+
+	}
+
 
 }

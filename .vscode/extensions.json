@@ -1,0 +1,7 @@
+{
+    "recommendations": [
+        "vscjava.vscode-java-dependency",
+        "vscjava.vscode-java-debug",
+        "madhavd1.javadoc-tools"
+    ]
+}

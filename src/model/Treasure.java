@@ -6,6 +6,7 @@ public class Treasure{
     private String nameTreasure;
     private String urlTreasure;
     private int givePlayer;
+    private Level level;
     private double pixelesPos;
     private int treasureForLevel;
 
@@ -40,6 +41,19 @@ public class Treasure{
     public void setGivePlayer(){
         this.givePlayer = givePlayer;
     }
+
+    public Level getLevel(){
+        return level;
+    }
+
+    public String toString(){
+		return
+		"Information about treasures: \n" +
+		"Name of the treasure:" + this.nameTreasure + "\n"+
+		"The img(url) of the treasure: " + this.urlTreasure  + "\n "+
+		"Score that gives:" + this.givePlayer +"\n "; 
+
+	}
 
 
 }

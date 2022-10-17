@@ -10,16 +10,16 @@ public class Level{
 	private int scoreNeccesary;
 	private int totalTreasures;
 
-	private Enemy[] enemies;
-	private Treasure[] treasures;
+	protected Enemy[] enemies;
+	protected Treasure[] treasures;
 
 
 	public Level (int idLevel, int scoreNeccesary, int totalTreasures){
 		this.idLevel = idLevel;
 		this.scoreNeccesary = scoreNeccesary;
 		this.totalTreasures = totalTreasures;
-		enemies = new Enemy[5];
-		treasures = new Treasure[totalTreasures];
+		enemies = new Enemy[ALL_ENEMIES];
+		treasures = new Treasure[ALL_TREASURES];
 
 
 	}
@@ -35,9 +35,7 @@ public class Level{
 	public Enemy[] getEnemies(){
 		return enemies;
 	}
-
 	
-
 	public Treasure[] getTreasures(){
 		return treasures;
 	}
@@ -70,6 +68,18 @@ public class Level{
 			}
 		}
 		return msj;
+	}
+
+	public int countEnemiesConsonant(){
+
+		int num = 0;
+		for(int i = 0; i < enemies.length; i++){
+			if(enemies[i] != null){
+				num++;
+			}
+		}
+		return num;
+	
 	}
 	
 }

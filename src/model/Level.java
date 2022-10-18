@@ -44,6 +44,10 @@ public class Level{
 		return scoreNeccesary;
 	}
 
+	/**
+     * This method allow to add enenmies in the array.
+     * @return A message with the information.
+    */
 	public String addEnemyLevel(Enemy enemy){
         String msj = "Can not add enemy. ";
         boolean isEmpty = false;
@@ -57,6 +61,11 @@ public class Level{
         return msj;
     }
 
+	/**
+     * This method allows to add treasures in the array.
+	 * it will be used latter 
+     * @return A message with the information.
+    */
 	public String addTreasureLevel(Treasure treasure){
 		String msj = "Limit of treasures has been reached. ";
 		boolean isEmpty = false;
@@ -68,18 +77,6 @@ public class Level{
 			}
 		}
 		return msj;
-	}
-
-	public int countEnemiesConsonant(){
-
-		int num = 0;
-		for(int i = 0; i < enemies.length; i++){
-			if(enemies[i] != null){
-				num++;
-			}
-		}
-		return num;
-	
 	}
 	
 }

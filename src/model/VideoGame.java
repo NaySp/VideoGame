@@ -293,50 +293,31 @@ public class VideoGame{
     /**
      * This method allows to increase a player level if it has the neccessary score.
      * @param idNick the identification of the player
+     * @param toLevel the level where the player will be change.
      * @return A message if the players level was modified or not.
     */
-    public String IncreaseLevelPlayer(String idNick){
-        String msj = ("Something went wrong. Could not increase level of the player. ");
+    public String IncreaseLevelPlayer(String idNick, int toLevel){
+        String msj = "";
         int posPlayer = searchPersonById(idNick);
 
-        for(int i = 0; i < SIZE_OF_PLAYERS; i++){
-            if(players[i] != null && players[i].getidNick().equalsIgnoreCase(idNick)){
-                if(posPlayer == -1){
-                    msj = "The idNick does not match.";
-                }else if(players[i].getScore() < levels[players[i].getLevel()].getScoreNeccesary()){
-                    msj = "The player does not have the score required for increase level. ";    
-                }else if(players[i].getLevel() == 10){
-                    msj = "Tha player already get max level. ";
-                }else{
-                    players[i].setLevel(players[i].getLevel());
-                    msj += "\n Level increase for: " +players[i].getLevel() +"\n\n";
+        if(posPlayer != -1){
+            if(levels[toLevel-1] != null){
+                if(players[posPlayer].getScore() > levels[toLevel-1].getScoreNeccesary()){
+                    players[posPlayer].setLevel(toLevel);
+                    msj = "The level of the player has been change. ";
                 }
             }
+
+        }
+        else{
+            msj = "Error, something went wrong. ";
         }
         return msj;
 
     }
 
     
-    public String listEnemies(int level){
-        String msj = "ENEMY ";
-        for(int i = 0; i < ALL_ENEMIES; i++){
-            if(enemies[i] != null && enemies[i].getLevel().getidLevel() == level){
-                msj += enemies[i].getidEnemy() + ", ";
-            }
-        }
-        return msj;
-    }
-
-    public String listTreasures(int level){
-        String msj = "TREASURE ";
-        for(int i = 0; i < ALL_TREASURES; i++){
-            if(treasures[i] != null && treasures[i].getLevel().getidLevel() == level){
-                msj += treasures[i].getTreasureName()+ ", ";
-            }
-        }
-        return msj;
-    }
+   
  
     
     /**
@@ -497,21 +478,33 @@ public class VideoGame{
      * This method shows how many consonants have the enemies names.
      * @return A message with the information.
     */
-    public String consonantsOfEnemies(){
+    public int consonantsOfEnemies(){
 
-		String cadena = "There are no consonants in enemies name.";
+		String cadena = "";
 		int con = 0;
 
-        for(int h = 0; h < levels.length ; h++){
-            if(levels[h] != null){
-                con += levels[h].countEnemiesConsonant();
+        for(int i = 0; i < LEVEL_SIZE; i++){
+            if(levels[i] != null){
+                for(int p = 0; p < ALL_ENEMIES; p++){
+                    if(levels[i].enemies[p] != null){
+                        cadena = levels[i].enemies[p].getidEnemy();
+                        for(int x = 0; x < cadena.length(); x++){
+                            char letra = cadena.charAt(x);
+                            if(isConsonant(letra)){
+                                con++;
+                            }
+                        }
+
+                    }
+                }
             }
         }
-		if(con>0){
-            cadena = "there are "+ con + " consonants in enemies names.";
-        }
-        return cadena;
+        return con;
 		
+	}
+
+    public static boolean isConsonant(char letra) {
+		return "bcdfghjklmnñpqrstvwxyz".contains(String.valueOf(letra).toLowerCase());
 	}
 
     /**
@@ -519,7 +512,39 @@ public class VideoGame{
      * @return A message with the information.
     */
     public String topfive(){
-        String msj;
+        String msj = "There are no players in the game";
+        Player[] topFive = new Player[5];
+
+        for (int i=0;i<players.length;i++){
+            if (players[i]!=null){
+                if (topFive[0]==null){
+                    topFive[0]=players[i];
+                }else{
+                    boolean found = false;
+                    for (int j=0;j<topFive.length&&!found;j++) {
+                        if (topFive[j]==null){
+                            topFive[j]=players[i];
+                            found=true;
+                        }else if (topFive[j].getScore()<players[i].getScore()){
+                            for (int k=topFive.length-1;k>j;k--){
+                                topFive[k]=topFive[k-1];
+                            }
+                            topFive[j]=players[i];
+                            found=true; 
+                        }
+                    }
+                }
+            }
+        }
+
+        if (topFive[0]!=null){
+            msj="The top five players are:\n ";
+            for (int i=0;i<topFive.length;i++){
+                if (topFive[i]!=null){
+                    msj +=i+1 + ". "+topFive[i].getidNick()+" with "+topFive[i].getScore()+" points.\n ";
+                }
+            }
+        }
         
         return msj;
     }

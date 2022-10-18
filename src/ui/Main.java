@@ -84,8 +84,8 @@ public class Main{
 		String idEnemy;
 		String nameTreasure;
 		String urlTreasure;
-		String consonat;
-
+		
+		int consonat;
 		int idLevel;
 		int scoreNeccesary;
 		int totalTreasures;
@@ -95,6 +95,7 @@ public class Main{
 		int plusTreasure;
 		int treasureForLevel;
 		int levelShow;
+		int toLevel;
 		
 
 		
@@ -184,7 +185,10 @@ public class Main{
 
 				System.out.println("Type the idNick of the player that u want to increase of level: ");
 				id = reader.next();
-				msj = videoGame.IncreaseLevelPlayer(id);
+				System.out.println("Type the new level where u want to change player. ");
+				toLevel = validateInt();
+				
+				msj = videoGame.IncreaseLevelPlayer(id, toLevel);
 				System.out.println(msj);
 
 

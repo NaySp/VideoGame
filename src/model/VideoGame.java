@@ -3,6 +3,7 @@ import model.*;
 
 public class VideoGame{
    
+    //** declare the value of arrays to set limits */
     public static final int SIZE_OF_PLAYERS = 20; 
     public static final int LEVEL_SIZE = 10;
     public static final int ALL_ENEMIES = 25; 
@@ -28,14 +29,26 @@ public class VideoGame{
     }
 
     
+    
+    /** 
+     * @return Player[]
+     */
     public Player[] getPlayers(){
         return players;
     }
 
+    
+    /** 
+     * @return Level[]
+     */
     public Level[] getLevel(){
         return levels;
     }
 
+    
+    /** 
+     * @return Enemy[]
+     */
     public Enemy[] getEnemy(){
         return enemies;
     }
@@ -76,7 +89,7 @@ public class VideoGame{
 
     /**
      * This methow allows the user to add new levels in the array levels
-     * @param id level this is an identification for the level that will be from 1 to 10
+     * @param idLevel level this is an identification for the level that will be from 1 to 10
      * because the level 0 is already intialized.
      * @param scoreNeccesary it will be the point that the player has to get for pass the next level.
      * @param totalTreasures for level the user most type how many treasures the level would have.
@@ -130,11 +143,12 @@ public class VideoGame{
         return isEmpty;
     }
 
+   
     /**
      * This method allows to search for a player with it identification in the array of players.
-     * @param idNicik the identification of the player
+     * @param idNick the identification of the player
      * @return The player that was found.
-     */
+    */
     public int searchPersonById(String idNick){
 
         int pos = -1;
@@ -154,7 +168,7 @@ public class VideoGame{
      * This method allows to search for a level with it identification (0-10) in the array of levels.
      * @param idLevel the identification of the level
      * @return the level object that was found.
-     */
+    */
     public int searchLevelByIdent(int idLevel){
         int pos = -1;
         boolean isFound = false;
@@ -174,9 +188,9 @@ public class VideoGame{
     /**
      * This method allows to search for a enemy with it name identification in the array of levels.
      * @param idEnemy the name of the enemy
-     * @param idlevel the identification of the level
+     * @param idLevel the identification of the level
      * @return the enemy object was found.
-     */
+    */
     public int searchEnemy(String idEnemy, int idLevel){
         int pos = -1;
         boolean isFound = false;
@@ -192,7 +206,7 @@ public class VideoGame{
  
     /**
      * This method allows the user to add a enemy of a type to the levels.
-     * @param IdEnemy the name of the new enemy
+     * @param idEnemy the name of the new enemy
      * @param typeEnemy the type enemy "ogro, boss, magical, abstract"
      * @param giveScore the score that the enemy will give if the player kill it
      * @param takeScore The score that the enemy will take if hits the player
@@ -256,7 +270,7 @@ public class VideoGame{
     /**
      * This method allows to modify a players score.
      * @param playerScore the score that the player has
-     * @param idNicik the identification of the player
+     * @param idNick the identification of the player
      * @return A message if the score was modified.
     */
     public String modifyScore(int playerScore, String idNick){
@@ -269,13 +283,12 @@ public class VideoGame{
         return msj;
     }
 
-    
-    /**
+    /** 
      * This method allows to change a players score.
-     * @param playerScore the score that the player has
-     * @param idNicik the identification of the player
-     * @return A message if the score was modified.
-    */
+     * @param scorePlayer he score that the player has
+     * @param idNick idNicik the identification of the player
+     * @return String =  A message if the score was modified.
+     */
     public String changeScore(int scorePlayer, String idNick){
         String msj = "Something went wrong. ";
         int posPlayer = searchPersonById(idNick);
@@ -503,6 +516,13 @@ public class VideoGame{
 		
 	}
 
+
+    
+    /** 
+     * valids that thera are no vocals, and allows to count only consonants
+     * @param letra it will be used in other method to be a char
+     * @return boolean
+    */
     public static boolean isConsonant(char letra) {
 		return "bcdfghjklmnñpqrstvwxyz".contains(String.valueOf(letra).toLowerCase());
 	}

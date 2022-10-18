@@ -36,7 +36,15 @@ public class Main{
 
     }
 
-    public int getOptionShowMenu(){
+
+
+    
+	/** 
+	 * This method shows to the user what he can do in the game
+	 * and save the answer as an int
+	 * @return int
+	 */
+	public int getOptionShowMenu(){
 		int option = 0; 
 		System.out.println("<<<<< Welcome to the Video Game >>>>>");
 		System.out.println(
@@ -74,7 +82,8 @@ public class Main{
 	}
 
 
-    public void executeOption(int option){
+
+	public void executeOption(int option){
 
         String msj;
 		String msg;

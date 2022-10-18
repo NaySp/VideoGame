@@ -1,6 +1,8 @@
 package model;
 import java.util.Random;
 
+
+
 public class Enemy {
 
 
@@ -52,26 +54,50 @@ public class Enemy {
 		}
 	}
 
-    public String getidEnemy() {
+    
+	/** 
+	 * @return String the id enemy
+	 */
+	public String getidEnemy() {
 		return idEnemy;
 	}
 
+	
+	/** 
+	 * @return Level the level 
+	 */
 	public Level getLevel(){
 		return level;
 	}
 
+	
+	/** 
+	 * @param idEnemy the id enemy means name enemy
+	 */
 	public void setidEnemy(String idEnemy) {
 		this.idEnemy = idEnemy;
 	}
 
+	
+	/** 
+	 * @return int the score that gives if the user kill it
+	 */
 	public int getGiveScore(){
 		return giveScore;
 	}
 
+	
+	/** 
+	 * @param giveScore set the give score
+	 */
 	public void setGiveScore(int giveScore){
 		this.giveScore = giveScore;
 	}
 
+	
+	/** 
+	 * @return int types of enemies
+	 */
 	public int getType(){
 		switch(typeEnemy){
 			case OGRO:
@@ -91,6 +117,10 @@ public class Enemy {
 		}
 	}
 
+	
+	/** 
+	 * @return String information about everithing of the enemy
+	 */
 	public String toString(){
 		return
 		"Information about enemy: \n" +
